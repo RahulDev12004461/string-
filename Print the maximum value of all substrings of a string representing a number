@@ -1,0 +1,27 @@
+//print the maximum value of all substring of string representing a number
+#include <bits/stdc++.h>
+using namespace std;
+
+int ma(string s) // Change the return type to int
+{
+    vector<int> v;
+    int n = s.length();
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 1; j <= n - i; j++)
+        {
+            string sub = s.substr(i, j);
+            int x = stoi(sub);
+            v.push_back(x);
+        }
+    }
+    return *max_element(v.begin(), v.end()); // Return the maximum value
+}
+
+int main()
+{
+    string s;
+    cin >> s;
+    cout << ma(s) << endl; // Print the result returned by the function
+    return 0;
+}
