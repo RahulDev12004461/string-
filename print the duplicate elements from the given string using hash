@@ -1,0 +1,24 @@
+//print all the duplicates elments using hash
+#include<bits/stdc++.h>
+using namespace std;
+void str(string s)
+{
+	unordered_map<char,int > mps;
+	for(int i=0;i<s.length();i++)
+	{
+	    mps[s[i]]++;
+	}
+	for(auto it : mps)
+	{
+	    if(it.second>1)
+	    cout<<it.first<<"count  be : "<<it.second<<endl;
+	}
+}
+int main()
+{
+    string s;
+	cin>>s;
+	str(s);
+	
+	return 0;
+}
