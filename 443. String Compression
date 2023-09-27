@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int compress(vector<char>& chars) {
+        int n=chars.size();
+        int i=0;
+        int ans_index=0;
+        while(i<n)
+        {
+            int j=i+1;
+            while(j<n && chars[i]==chars[j])
+            {
+                j++;
+
+            }
+            chars[ans_index++]=chars[i];
+            int count=j-i;
+            if(count>1)
+            {
+                //counting into single digit and saving 
+                string cnt=to_string(count);
+                for(char ch:cnt)
+                {
+                    chars[ans_index++]=ch;
+                }
+            }
+            i=j;
+        }
+        return ans_index;
+    }
+};
